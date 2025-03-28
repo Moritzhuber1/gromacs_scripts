@@ -42,6 +42,6 @@ echo "MORITZ REMINDS YOU :AAAAAAAAAAAAAAWWWWWWWWWWWWWWEEEEEEEEEEESSSSSSOOOOOOOOM
 
 
 gmx grompp -f md.mdp -c npt.gro -p ${topology}.top -o md.tpr -maxwarn 2
-gmx mdrun -deffnm md
+gmx mdrun -deffnm md -v
 
-echo "MORITZ REMINDS YOU : THE MD PRODUCTION IS RUNNING SMOOTH LIKE YOUR STYLE 😎"
+echo "MORITZ REMINDS YOU : If you shoot for the moon, and you miss, you end up in the stars"
