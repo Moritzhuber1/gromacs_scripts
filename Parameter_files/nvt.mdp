@@ -1,0 +1,31 @@
+; nvt.mdp – NVT Gleichgewicht
+integrator      = md
+tinit           = 0
+dt              = 0.002
+nsteps          = 50000        ; 100 ps
+continuation    = no
+gen_vel         = yes
+gen_temp        = 300
+gen_seed        = -1
+
+cutoff-scheme   = Verlet
+ns_type         = grid
+nstlist         = 10
+rlist           = 1.0
+rcoulomb        = 1.0
+rvdw            = 1.0
+coulombtype     = PME
+vdw-type        = Cut-off
+
+constraints     = all-bonds
+constraint_algorithm = lincs
+
+; Temperatur-Kopplung
+tcoupl          = V-rescale
+tc-grps         = System
+tau_t           = 0.1
+ref_t           = 300
+
+pcoupl          = no           ; Kein Druck in NVT
+
+

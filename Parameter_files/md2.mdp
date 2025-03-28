@@ -1,0 +1,49 @@
+; md.mdp – Produktionslauf für 30 ns
+
+integrator      = md
+dt              = 0.002
+nsteps          = 15000000       ; 30 ns bei 2 fs Zeitschritt
+continuation    = yes
+gen_vel         = no
+
+; Ausgabe-Einstellungen
+nstxout         = 10000
+nstvout         = 10000
+nstfout         = 0
+nstlog          = 1000
+nstenergy       = 1000
+nstxtcout       = 1000
+xtc_precision   = 1000
+
+; Nachbarschaftssuche
+cutoff-scheme   = Verlet
+nstlist         = 10
+rlist           = 1.0
+rcoulomb        = 1.0
+rvdw            = 1.0
+coulombtype     = PME
+vdw-type        = Cut-off
+DispCorr        = EnerPres
+
+; Constraints
+constraints             = all-bonds
+constraint_algorithm    = lincs
+lincs_order             = 4
+lincs_iter              = 1
+
+; Temperatur-Kopplung
+tcoupl          = V-rescale
+tc-grps         = System
+tau_t           = 0.1
+ref_t           = 300
+
+; Druck-Kopplung
+pcoupl          = Parrinello-Rahman
+pcoupltype      = isotropic
+tau_p           = 2.0
+ref_p           = 1.0
+compressibility = 4.5e-5
+
+; Schwerpunktbewegung entfernen
+comm-mode       = Linear
+nstcomm         = 100

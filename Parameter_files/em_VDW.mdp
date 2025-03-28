@@ -1,0 +1,31 @@
+
+; Energy Minimization Parameters
+
+title                    = Energy Minimization
+define                   = -DFLEXIBLE
+
+; Run control
+integrator               = steep
+tinit                    = 0
+dt                       = 0.001
+nsteps                   = 5000
+
+; Energy Minimization settings
+emtol                    = 1000.0
+emstep                   = 0.01
+nstcgsteep               = 1000
+
+; Neighbor searching
+nstlist                  = 10
+cutoff-scheme            = Verlet
+ns_type                  = grid
+rlist                    = 1.0
+
+; Electrostatics and VdW
+coulombtype              = PME
+rcoulomb                 = 1.0
+rvdw                     = 1.0
+
+; Constraints
+constraints              = none
+
